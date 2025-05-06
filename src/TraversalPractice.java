@@ -32,6 +32,13 @@ public class TraversalPractice {
     if(node == null){
       return;
     }
+
+    if((node.left == null && node.right != null) || (node.left != null && node.right == null)){
+      System.out.println(node.value);
+    }
+
+    printNodesWithOneChild(node.left);
+    printNodesWithOneChild(node.right);
   }
 
     /**
@@ -46,6 +53,8 @@ public class TraversalPractice {
     if(node == null){
       return 0;
     }
+
+    return treeSum(node.left) + treeSum(node.right) + node.value;
   }
 
   /**
